@@ -9,10 +9,11 @@ RUN apt-key add /nginx.key \
         openssh-server \
         git \
         git-core \
+        vim \
     && tar xzvf /node-v4.4.3-linux-x64.tar.gz  -C / \
     && cp -r /node-v4.4.3-linux-x64/* /usr/local \
     && rm -r /node-v4.4.3-linux-x64*  /nginx.key \
-    && npm install pm2  --save \
+    && npm install pm2  -g \
     && echo "Asia/Shanghai" > /etc/timezone
 
 COPY sshconfig  /etc/ssh/sshd_config
